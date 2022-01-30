@@ -53,18 +53,15 @@
                 <li class="list__item">
                     <!-- drop down -->
                     <!-- to oppen dropdown dropdown--opened -->
-                    <div class="dropdown ">
-                        <!-- header -->
-                        <div class="dropdown__header">
+                    <app-dropdown>
+                        <ng-container class="header">
                             <a href="#" class="link">
                                 <img class="flag flag-us" src="" alt="">
                                 English
                             </a>
                             <i class="fas fa-angle-down"></i>
-                        </div>
-
-                        <!-- items -->
-                        <div class="dropdown__body">
+                        </ng-container>
+                        <ng-container class="body">
                             <ul class="dropdown__items list">
                                 <li class="dropdown__item list__item">
                                     <a href="#" class="link">
@@ -85,8 +82,8 @@
                                     </a>
                                 </li>
                             </ul>
-                        </div>
-                    </div>
+                        </ng-container>
+                    </app-dropdown>
                 </li>
             </ul>
         </div>
@@ -131,13 +128,13 @@
                                 <!-- item data -->
                                 <div class="item-small-1__data">
                                     <!-- title -->
-                                    <a href="" class="item-small-1__title">{{item.count}} {{item.name}}</a>
+                                    <a  class="item-small-1__title"> {{item.cartCounter}} {{item.name}}</a>
                                     <!-- price -->
                                     <span class="item-small-1__description" *ngIf="item.discount" >
-                                        {{ (item.price - item.discount) * item.count}}
+                                        {{ (item.price*item.cartCounter) - (item.discount*item.cartCounter)}}
                                     </span>
                                     <span class="item-small-1__description" *ngIf="item.discount==null" >
-                                        {{ item.price  * item.count}}
+                                        {{ item.price *item.cartCounter}}
                                     </span>
                                   
                                 </div>
@@ -145,8 +142,8 @@
                                 <div class="item-small-1__image-box">
                                     <a href="#" class="item-small-1__image image" [style]="'background-image: url('+item.image+')'">
                                     </a>
-                                    <a href="" class="item-small-1__action">
-                                        <i class="fas fa-times" (click)="deleteCartProduct(item)"></i>
+                                    <a  class="item-small-1__action">
+                                        <i class="fas fa-times" (click)="deleteCartProduct(item) "></i>
                                     </a>
                                 </div>
                             </div>
@@ -156,7 +153,7 @@
                     <div class="separator"></div>
                     <div class="block">
                         <span class="lable">Total:</span>
-                        <span class="lable">$2870</span>
+                        <span class="lable"></span>
                     </div>
                     <!-- actions -->
                     <div class="block list list--hr">
@@ -174,21 +171,21 @@
             <ul class="nav__items list list--hr">
                 <!-- items -->
                 <li class="nav__item">
-                    <a class="nav__link" href="#">Home</a>
+                    <a class="nav__link" routerLink="home">Home</a>
                 </li>
                 <li class="nav__item dropdown ">
                     <!-- title -->
-                    <a class="nav__link dropdown__header" href="#">
+                    <a class="nav__link dropdown__header" routerLink="product-item">
                         Products
                     </a>
                     <!-- items -->
                     <div class="dropdown__body">
                         <ul class=" list">
                             <li class="list__item">
-                                <a class="nav__inner-link" href="#">Product Listing</a>
+                                <a class="nav__inner-link" routerLink="product-item">Product Listing</a>
                             </li>
                             <li class="list__item">
-                                <a class="nav__inner-link" href="#">Add Product</a>
+                                <a class="nav__inner-link" routerLink="product-add">Add Product</a>
                             </li>
                         </ul>
                     </div>

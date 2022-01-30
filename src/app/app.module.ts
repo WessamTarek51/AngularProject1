@@ -7,6 +7,12 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { ListingItemComponent } from './container/listing-item/listing-item.component';
 import { FilterComponent } from './container/filter/filter.component';
 import { ProductItemComponent } from './container/product-item/product-item.component';
+import { DropdownComponent } from './shared/dropdown/dropdown.component';
+import { ProductFormComponent } from './container/product-form/product-form.component';
+import { ProductDetailsComponent } from './container/product-details/product-details.component';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { FormsModule } from '@angular/forms';
+// import { ProductService } from './_services/product/product.service';
 
 @NgModule({
   declarations: [
@@ -15,11 +21,16 @@ import { ProductItemComponent } from './container/product-item/product-item.comp
     FooterComponent,
     ListingItemComponent,
     FilterComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    DropdownComponent,
+    ProductFormComponent,
+    ProductDetailsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

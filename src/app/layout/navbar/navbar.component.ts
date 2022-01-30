@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Product } from 'src/app/_models/product/product_model';
+import { Product, ProductWithCounter } from 'src/app/_models/product/product_model';
+import { ProductService } from 'src/app/_services/product/product.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,16 +8,23 @@ import { Product } from 'src/app/_models/product/product_model';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-@Input()
-addedProducts !:Product[]
+addedProducts :ProductWithCounter[]=[];
+dropDownOpen=false;
 
 @Output()
   ItemRemoved:EventEmitter<Product>=new EventEmitter<Product>();
 
-dropDownOpen=false;
-  constructor() { }
+  constructor(private productService:ProductService) { 
+  }
 
   ngOnInit(): void {
+   this.productService.cartHasBeenChanged.subscribe(
+     (res)=>{
+       this.addedProducts=res
+     },
+     (err)=>{},
+     ()=>{}
+   )
   }
 
 
@@ -24,4 +32,5 @@ dropDownOpen=false;
   this.ItemRemoved.emit(product);
   
   }
+  
 }

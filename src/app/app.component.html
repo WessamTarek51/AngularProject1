@@ -1,8 +1,9 @@
-<app-navbar [addedProducts]="addedProduct" (ItemRemoved)="onItemRemove($event)"></app-navbar>
-<app-product-item (ItemAdded)="onItemAdd($event)" 
-></app-product-item>
-
+<app-navbar></app-navbar>
+<router-outlet></router-outlet>
 <app-footer></app-footer>
 
+
+<!-- (ItemAdded)="onItemAdd($event)" 
+(deleteCartProduct)="onItemRemove($event)" -->
 
 

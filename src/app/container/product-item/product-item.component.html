@@ -11,14 +11,14 @@
                 <option value="3">Price high to low</option>
                 <option value="4">Name</option>
             </select>
-            <a class="action-btn" href="#">
+            <a class="action-btn" routerLink="product-add">
                 <i class="fas fa-plus"></i>
             </a>
         </div>
         <!-- items -->
         <div class="item-listing__items item-listing--3items">
             <!-- medium item -->
-            <app-listing-item *ngFor="let item of productArray" class="item-medium-1" [productItem]="item" (addItemToCard)="onAddItemInCart($event)"></app-listing-item>
+            <app-listing-item *ngFor="let item of productArray" class="item-medium-1" [productItem]="item" ></app-listing-item>
            
         </div>
         <!-- paging -->
