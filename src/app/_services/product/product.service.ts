@@ -10,7 +10,6 @@ export class ProductService{
     category:{name:"food",id:1},
     tag:[{name:"food"}],
     paymay:[{name:"cash"}],
-  
   },
   {price:40,image:'../../../assets/img/food2.jpg',discount:5,name:"cheese",id:2,
   data:[{ description:"best cheese",lan:{name:"arbic"},id:2}],
@@ -77,8 +76,19 @@ constructor(){
   }
     }
 
+    search(seacrhInput:string){
+     this.filterProduct.splice(0,this.filterProduct.length);
+     for(let i of this.productsArray){
+       if(i.name.includes(seacrhInput)){
+         this.filterProduct.push(i)
+       }
+     }
+     console.log(this.filterProduct.length)
+    }
+
     getFilter(): Product[]{
-      return this.filterProduct }
+      return this.filterProduct 
+    }
 
     getAllProducts(): Product[]{
         return this.productsArray }
@@ -92,7 +102,7 @@ constructor(){
     }
 
     updateProduct(){}
-    
+
     addProductToCart(product:Product){
     console.log(product);
    const newProduct: ProductWithCounter ={...product,cartCounter:1};
@@ -121,7 +131,8 @@ constructor(){
     onlistItemRemove(productRemoved:Product){
           console.log(alert(productRemoved.name))
         
-        this.productsArray.splice(this.productsArray.indexOf(productRemoved),1)
+        this.productsArray.splice(this.productsArray.indexOf(productRemoved),1)        
+        this.filterProduct.splice(this.filterProduct.indexOf(productRemoved),1)
         return this.productsArray
       
     }

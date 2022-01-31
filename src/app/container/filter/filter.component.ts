@@ -13,8 +13,9 @@ export class FilterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  seacrhProduct(seacrhInput:String){
+  seacrhProduct(seacrhInput:string){
     console.log(seacrhInput)
+    this.productService.search(seacrhInput);
   }
 
 }
