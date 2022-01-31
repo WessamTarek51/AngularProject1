@@ -10,9 +10,10 @@ import { ProductService } from 'src/app/_services/product/product.service';
 export class NavbarComponent implements OnInit {
 addedProducts :ProductWithCounter[]=[];
 dropDownOpen=false;
+totalPrice=0;
 
 @Output()
-  ItemRemoved:EventEmitter<Product>=new EventEmitter<Product>();
+  ItemRemoved:EventEmitter<ProductWithCounter>=new EventEmitter<ProductWithCounter>();
 
   constructor(private productService:ProductService) { 
   }
@@ -21,15 +22,31 @@ dropDownOpen=false;
    this.productService.cartHasBeenChanged.subscribe(
      (res)=>{
        this.addedProducts=res
+       this.calculateTotal();
      },
      (err)=>{},
      ()=>{}
    )
   }
 
+  calculateTotal(){
+  
+    console.log(this.addedProducts.length)
+        this.totalPrice=0;
+     for( let item of this.addedProducts){
+       if(item.discount==null){
+        this.totalPrice+=(item.price*item.cartCounter)
+       }
+       else{
+         this.totalPrice+=((item.price*item.cartCounter) - (item.discount*item.cartCounter))
+       }
 
-  deleteCartProduct(product:Product) {
-  this.ItemRemoved.emit(product);
+     }
+  }
+
+  deleteCartProduct(product:ProductWithCounter) {
+  // this.ItemRemoved.emit(product);
+  this.productService.onItemRemove(product)
   
   }
   

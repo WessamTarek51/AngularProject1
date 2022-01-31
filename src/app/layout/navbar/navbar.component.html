@@ -153,7 +153,7 @@
                     <div class="separator"></div>
                     <div class="block">
                         <span class="lable">Total:</span>
-                        <span class="lable"></span>
+                        <span class="lable">{{totalPrice}}</span>
                     </div>
                     <!-- actions -->
                     <div class="block list list--hr">
@@ -175,17 +175,17 @@
                 </li>
                 <li class="nav__item dropdown ">
                     <!-- title -->
-                    <a class="nav__link dropdown__header" routerLink="product-item">
+                    <a class="nav__link dropdown__header" [routerLink]="['product','item']">
                         Products
                     </a>
                     <!-- items -->
                     <div class="dropdown__body">
                         <ul class=" list">
                             <li class="list__item">
-                                <a class="nav__inner-link" routerLink="product-item">Product Listing</a>
+                                <a class="nav__inner-link" [routerLink]="['product','item']">Product Listing</a>
                             </li>
                             <li class="list__item">
-                                <a class="nav__inner-link" routerLink="product-add">Add Product</a>
+                                <a class="nav__inner-link" [routerLink]="['product','add']">Add Product</a>
                             </li>
                         </ul>
                     </div>

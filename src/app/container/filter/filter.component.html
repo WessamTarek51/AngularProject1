@@ -1,7 +1,7 @@
     <!-- search box -->
     <div class="search-box">
-        <input class="search-box__input" placeholder="Search..." type="text" name="txt_search" id="">
-        <button type="submit" class="search-box__btn">
+        <input #seacrhInput class="search-box__input" placeholder="Search..." type="text" name="txt_search" id="">
+        <button  type="submit" class="search-box__btn" (click)="seacrhProduct(seacrhInput.value)">
             <i class="fas fa-search"></i>
         </button>
     </div>
@@ -32,7 +32,7 @@
         <!-- filter header -->
         <h5>Tags</h5>
         <!-- filter tags -->
-        <div class="tags">
+        <!-- <div class="tags" >
             <span class="tag">Nike</span>
             <span class="tag">Travel</span>
             <span class="tag">Sport</span>
@@ -47,7 +47,7 @@
             <span class="tag">Special</span>
             <span class="tag">Food</span>
             <span class="tag">Used</span>
-        </div>
+        </div> -->
     </div>
     <!-- related items -->
     <div>

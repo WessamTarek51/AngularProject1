@@ -8,15 +8,13 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
 const routes: Routes = [
   {path:'',component:ProductItemComponent},
   {path:'home',redirectTo:'',pathMatch:'full'},
-  {path:'product-item',redirectTo:'',pathMatch:'full'},
-  {path:'product-details',component:ProductDetailsComponent},
-  {path:'product-add',component:ProductFormComponent},
-  {path:'product-edit/:id',component:ProductFormComponent},
+  {path:'product',children:[
+  {path:'item',component:ProductItemComponent},
+  {path:'details',component:ProductDetailsComponent},
+  {path:'add',component:ProductFormComponent},
+  {path:'edit/:productId',component:ProductFormComponent},
+  ]},
   {path:'**',component:NotFoundComponent}
-
-
-
-
 ];
 
 @NgModule({

@@ -11,9 +11,6 @@ import { ProductService } from 'src/app/_services/product/product.service';
 export class ListingItemComponent implements OnInit {
   @Input()
   productItem!:Product
-
-  @Output()
-  addItemToCard:EventEmitter<Product> = new EventEmitter<Product>();
    
   constructor(private productService:ProductService) { }
 
@@ -22,8 +19,12 @@ export class ListingItemComponent implements OnInit {
 
   onItemAdded(){
     console.log(this.productItem)
-    // this.addItemToCard.emit(this.productItem);
     this.productService.addProductToCart(this.productItem)
+  }
+
+
+  deleteListProduct(product:Product){
+    this.productService.onlistItemRemove(product);
   }
 
   

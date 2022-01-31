@@ -9,15 +9,18 @@ import { ProductService } from 'src/app/_services/product/product.service';
 })
 export class ProductItemComponent implements OnInit {
   productArray!:Product[];
+  filterArray!:Product[];
+
 
   @Output()
   ItemAdded:EventEmitter<Product>=new EventEmitter<Product>();
   constructor(private productService:ProductService) { 
-    
   }
 
   ngOnInit(): void {
     this.productArray=this.productService.getAllProducts();
+    this.filterArray=this.productService.getFilter();
+
 
 }
 // onAddItemInCart(product:Product){
