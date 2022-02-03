@@ -11,6 +11,8 @@ export class ProductItemComponent implements OnInit {
   productArray!:Product[];
   filterArray!:Product[];
 
+  totalLength:any;
+  page:number=1;
 
   @Output()
   ItemAdded:EventEmitter<Product>=new EventEmitter<Product>();
@@ -20,6 +22,7 @@ export class ProductItemComponent implements OnInit {
   ngOnInit(): void {
     this.productArray=this.productService.getAllProducts();
     this.filterArray=this.productService.getFilter();
+    this.totalLength = this.filterArray.length
 
 
 }

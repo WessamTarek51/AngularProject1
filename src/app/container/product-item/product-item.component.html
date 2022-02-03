@@ -18,23 +18,24 @@
         <!-- items -->
         <div class="item-listing__items item-listing--3items">
             <!-- medium item -->
-            <app-listing-item *ngFor="let item of filterArray" class="item-medium-1" [productItem]="item" ></app-listing-item>
+            <app-listing-item  *ngFor="let item of filterArray | paginate:{itemsPerPage:9,currentPage:page,totalItems:totalLength}" class="item-medium-1" [productItem]="item" ></app-listing-item>
            
         </div>
         <!-- paging -->
         <div class="paging">
+            <pagination-controls class="text-center" (pageChange)="page = $event"></pagination-controls>
             <!-- left arrow -->
-            <div class="paging__arrow">
+            <!-- <div class="paging__arrow">
                 <i class="fas fa-angle-left"></i>
-            </div>
+            </div> -->
             <!-- page number -->
-            <div class="paging__number active">1</div>
+            <!-- <div class="paging__number active">1</div>
             <div class="paging__number">2</div>
-            <div class="paging__number">3</div>
+            <div class="paging__number">3</div> -->
             <!-- right arrow -->
-            <div class="paging__arrow">
+            <!-- <div class="paging__arrow">
                 <i class="fas fa-angle-right"></i>
-            </div>
+            </div> -->
         </div>
     </section>
 </div>

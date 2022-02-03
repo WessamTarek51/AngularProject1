@@ -12,6 +12,7 @@ import { ProductFormComponent } from './container/product-form/product-form.comp
 import { ProductDetailsComponent } from './container/product-details/product-details.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 // import { ProductService } from './_services/product/product.service';
 
 @NgModule({
@@ -25,12 +26,14 @@ import { FormsModule } from '@angular/forms';
     DropdownComponent,
     ProductFormComponent,
     ProductDetailsComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

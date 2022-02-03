@@ -62,7 +62,7 @@ export class ProductFormComponent implements OnInit {
 
 
   onAddProduct(form:NgForm){
-    console.log(form)
+    console.log(form.value)
     const product:Product=form.value;    
     this.productService.addProduct(product)
     this.router.navigateByUrl('home')
